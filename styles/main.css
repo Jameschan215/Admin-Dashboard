@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
 :root {
 	--primary-clr: #0ea5e9;
 	--white: #f8fafc;
@@ -12,83 +14,108 @@ body {
 	height: 100%;
 	font-size: 1.6rem;
 	overflow: hidden;
+
+	font-family: 'Mona Sans', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
 }
 
 .container {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 25% 75%;
+	grid-template-columns: clamp(250px, 22%, 25%) 1fr;
 	grid-template-rows: 150px 1fr;
 }
 
+/* ------------- Sidebar ------------- */
 .sidebar {
 	grid-row: 1 / -1;
 	color: var(--white);
 	background-color: var(--primary-clr);
-	padding: 20px;
+	padding: 24px;
 
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 48px 1fr;
+	gap: 60px;
+}
 
-	.sidebar-header {
-		width: 100%;
-		margin-top: 20px;
+.branding {
+	align-self: start;
+	display: grid;
+	grid-template-columns: 48px 1fr;
+	grid-auto-flow: column;
+	align-items: center;
+	justify-items: start;
+	gap: 10px;
+}
 
-		display: flex;
-		align-items: center;
-		gap: 12px;
-
-		.logo {
-			width: 48px;
-			width: 48px;
-
-			svg {
-				fill: var(--white);
-			}
-		}
-
-		h2 {
-			font-size: 2.8rem;
-		}
-	}
-
-	.nav {
-		margin-top: 60px;
-		margin-left: 6px;
-
-		display: flex;
-		flex-direction: column;
-		gap: 48px;
-
-		div {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-		}
-
-		.nav-link {
-			text-decoration: none;
-			color: inherit;
-			font-size: 1.8rem;
-			font-weight: 600;
-
-			display: flex;
-			align-items: center;
-			gap: 16px;
-
-			.icon {
-				width: 36px;
-				height: 36px;
-				fill: var(--white);
-			}
-		}
+.branding .logo {
+	width: 48px;
+	width: 48px;
+	svg {
+		fill: var(--white);
 	}
 }
 
+.branding h2 {
+	font-size: 2.4rem;
+	font-weight: 900;
+}
+
+.nav {
+	margin-left: -8px;
+
+	display: grid;
+	grid-template-rows: repeat(10, 48px);
+	transition: all 0.25s ease-in-out;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.8rem;
+	font-weight: 600;
+
+	width: 200px;
+	height: 40px;
+	padding-left: 16px;
+	border-radius: 100px;
+
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 30px 1fr;
+	align-items: center;
+	gap: 20px;
+
+	transition: all 0.25s ease-in-out;
+}
+
+.nav-link .icon {
+	width: 30px;
+	height: 30px;
+	fill: var(--white);
+	justify-self: center;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+	background-color: var(--white);
+	color: var(--primary-clr);
+}
+
+.nav-link:hover .icon,
+.nav-link:focus .icon {
+	fill: var(--primary-clr);
+}
+
+/* ------------- Header ------------- */
 .header {
 	border: 1px solid blueviolet;
 }
 
+/* ------------- Main ------------- */
 .main {
 	border: 1px solid limegreen;
 }
